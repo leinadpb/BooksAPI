@@ -1,1 +1,1 @@
-web: gunicorn bookapi-pro:app
+web: gunicorn app:app
