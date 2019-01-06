@@ -1,0 +1,15 @@
+- model: models.BookModel.Book
+  id: 1
+  fields:
+    name: "Redux Bible"
+    price: 45.99
+    isbn: 123456
+    authors_id: 1
+
+- model: models.BookModel.Book
+  id: 2
+  fields:
+    name: "Artificial Intelligence with Python"
+    price: 78.99
+    isbn: 987654
+    authors_id: 2

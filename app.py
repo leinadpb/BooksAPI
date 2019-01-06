@@ -16,7 +16,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.debug = True
 db = SQLAlchemy(app)
 
-from models import BookModel, AuthorModel
+from models.AuthorModel import Author
+from models.BookModel import Book
 
 # GET /
 @app.route('/')

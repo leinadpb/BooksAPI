@@ -7,8 +7,13 @@ from sqlalchemy_seed import (
     load_fixture_files,
 )
 from seedModel import Base, session
-from AuthorModel import Author
-from BookModel import Book
+
+import os,sys,inspect
+current_dir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+parent_dir = os.path.dirname(current_dir)
+sys.path.insert(0, parent_dir) 
+from models.AuthorModel import Author
+from models.BookModel import Book
 
 
 def main():

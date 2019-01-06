@@ -1,0 +1,23 @@
+- model: models.AuthorModel.Author
+  id: 1
+  fields:
+    name: Daniel
+    lastname: Peña
+
+- model: models.AuthorModel.Author
+  id: 2
+  fields:
+    name: Israel
+    lastname: Peña
+
+- model: models.AuthorModel.Author
+  id: 3
+  fields:
+    name: Gabriel
+    lastname: Peña
+
+- model: models.AuthorModel.Author
+  id: 4
+  fields:
+    name: Jelitza
+    lastname: Peña

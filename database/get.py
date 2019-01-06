@@ -1,8 +1,12 @@
-from settings import db
-from BookModel import Book
-from AuthorModel import Author
 import pprint
 import json
+
+import os,sys,inspect
+current_dir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+parent_dir = os.path.dirname(current_dir)
+sys.path.insert(0, parent_dir) 
+from models.AuthorModel import Author 
+from models.BookModel import Book
 
 pp = pprint.PrettyPrinter(indent=2)
 

@@ -1,6 +1,9 @@
-from flask import Flask
 from app import db
 import json
+from sqlalchemy.exc import SQLAlchemyError
+import pprint
+
+pp = pprint.PrettyPrinter(indent=2)
 
 class Book(db.Model):
     __tablename__ = "books"
@@ -19,23 +22,31 @@ class Book(db.Model):
     def add(_name, _price, _isbn):
         result = Book(name=_name, price=_price, isbn=_isbn)
         db.session.add(result)
-        db.session.commit()
+        try:
+            db.session.commit()
+        except SQLAlchemyError as e:
+            return json.dumps(e)
+
         return Book.json(result)
 
     def add_book(data):
         result = Book(name=data['name'], price=data['price'], isbn=data['isbn'])
         db.session.add(result)
-        db.session.commit()
+        try:
+            db.session.commit()
+        except SQLAlchemyError as e:
+            pp.pprint(e)
+            return json.dumps(e)
         return Book.json(result)
     
     def get_all():
         return [Book.json(book) for book in db.session.query(Book)]
 
     def getByIsbn(_isbn):
-        return Book.json(Book.query.filter_by(isbn=_isbn).first())
+        return Book.json(db.session.query(Book).filter_by(isbn=_isbn).first())
 
     def deleteByIsbn(_isbn):
-        book = Book.query.filter_by(isbn=_isbn).delete()
+        book = db.session.query(Book).filter_by(isbn=_isbn).delete()
         db.session.commit()
 
     def updateBook(existing_book, meta):
