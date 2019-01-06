@@ -13,3 +13,4 @@
 - [ ] Integrate Github + Travis CI + Heroku
 - [ ] Create Authors endpoints
 - [ ] Code cleanup
+- [ ] JWT Authentication (secure all endpoints)
