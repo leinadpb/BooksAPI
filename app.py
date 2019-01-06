@@ -13,7 +13,7 @@ app.config.from_object(os.environ['APP_SETTINGS'])
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.debug = True
+app.debug = os.environ.get('DEBUG')
 db = SQLAlchemy(app)
 
 # Author's import should be removed if you're going to execute database queries in database\
