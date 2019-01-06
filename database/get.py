@@ -8,6 +8,8 @@ sys.path.insert(0, parent_dir)
 from models.AuthorModel import Author 
 from models.BookModel import Book
 
+# VERIFY AUTHOR MODEL IS NOT BEING IMPORTED IN > booksapi/app.py
+
 pp = pprint.PrettyPrinter(indent=2)
 
 def getAllBooks():

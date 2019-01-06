@@ -16,6 +16,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.debug = True
 db = SQLAlchemy(app)
 
+# Author's import should be removed if you're going to execute database queries in database\
+# Just to avoid redundant imports and python doesn't go crazy. ;)
 from models.AuthorModel import Author
 from models.BookModel import Book
 
