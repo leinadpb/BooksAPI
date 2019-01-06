@@ -29,7 +29,7 @@ class Book(db.Model):
         return Book.json(result)
     
     def get_all():
-        return [Book.json(book) for book in Book.query.all()]
+        return [Book.json(book) for book in db.session.query(Book)]
 
     def getByIsbn(_isbn):
         return Book.json(Book.query.filter_by(isbn=_isbn).first())

@@ -2,7 +2,8 @@ from flask import Flask, jsonify, request, Response, current_app
 from flask_sqlalchemy import SQLAlchemy
 import os
 import json
-from common import sanitizer, http_responses, functions
+from common.sanitizer import bookSanitize
+from common.http_responses import invalidRequest, invalidOperation, notFound, createdObject, deletedObject, updatedObject, fetchSuccess
 
 # print(os.environ['DATABASE_URL'])
 # print( current_app.config.get('SQLALCHEMY_DATABASE_URI'))
@@ -12,6 +13,7 @@ app.config.from_object(os.environ['APP_SETTINGS'])
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.debug = True
 db = SQLAlchemy(app)
 
 from models import BookModel, AuthorModel
